@@ -1,4 +1,4 @@
-#Ubuntu ISO Creator - Rhamnousia 2021 
+#Rhamnousia 2021 Custom Ubuntu ISO Creator
 
 import sys
 import time
@@ -91,15 +91,13 @@ def make_chroot_enviroment(var):
 
     #start chroot bash. (as sudo. sudo is never required.)
     os.system("clear")
-    print("The os.system will enter a chroot enviroment where you can modify the operating os.system\nWhen you are finished, just type \'exit\'. then run build.py")
-    input("Press Enter to continue...")
-    os.system("clear")
-    cmd = "sudo chroot "+folder+" /bin/bash"
-    send_cmd(cmd)
+    os.system("sudo chroot "+folder+" /bin/bash")
 
 
 def build_iso(name, var):
-    print(name.get())
+    var = var.get()
+    var = str(var)
+    name = str(name)
     print("Unmounting filesystem...")
     cmd = "sudo umount "+var+"/proc "+var+"/sys "+var+"/dev"
     send_cmd(cmd)
@@ -244,7 +242,7 @@ class Toplevel1:
         self.Button1.place(relx=0.267, rely=0.566, height=33, width=73)
         self.Button1.configure(activebackground="#f9f9f9")
         self.Button1.configure(borderwidth="2")
-        self.Button1.configure(text='''Build ISO''', command=lambda: project_folder(self.isoname))
+        self.Button1.configure(text='''Build ISO''', command=lambda: build_iso(self.isoname, var))
 
         self.Button2 = tk.Button(self.Frame2)
         self.Button2.place(relx=0.24, rely=0.38, height=33, width=123)
@@ -265,10 +263,6 @@ class Toplevel1:
 
 if __name__ == '__main__':
     vp_start_gui()
-
-
-
-
 
 
 
