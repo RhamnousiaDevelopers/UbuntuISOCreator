@@ -27,7 +27,7 @@ Now, you will run the first file, UbuntuISOCreator.py
 python3 UbuntuISOCreator.py
 ```
 
-This program will update your computer, and download an ubuntu 'filesystem' into the directory you created and specified. after you are done, you can type 'exit'. Then, you will need to build the ISO.
+This program will update your computer, and download an ubuntu 'filesystem' into the directory you created and specified. At one point into the process, the program will take you into a chroot enviroment where you can apply the change to the OS through a direct shell. You can read the docs here for help modifying the OS in Chroot. after you are done, you can type 'exit'. Then, you will need to build the ISO.
 Simply run:
 ```
 python3 build.py
